@@ -1,0 +1,34 @@
+{
+  "name": "@tdmalone/lambda-proxy-response",
+  "version": "0.0.0",
+  "description": "Helper module for sending responses back to the AWS API Gateway from Lambda proxy invocations.",
+  "homepage": "https://github.com/tdmalone/lambda-proxy-response#readme",
+  "repository": "git+https://github.com/tdmalone/lambda-proxy-response.git",
+  "main": "index.js",
+  "author": "Tim Malone <tdmalone@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "cross-env DEBUG=eslint:cli-engine eslint --color --ignore-pattern '/coverage/' --ignore-pattern '/docs/' --ignore-pattern '!.eslintrc.js' \"**/*.js\"",
+    "fix": "yarn lint --fix",
+    "test": "jest --verbose --coverage"
+  },
+  "keywords": [
+    "aws",
+    "lambda",
+    "api-gateway"
+  ],
+  "jest": {
+    "testMatch": [
+      "**/tests/**/*.js"
+    ]
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "cross-env": "^5.1.0",
+    "eslint": "^4.8.0",
+    "eslint-config-tdmalone": "^0.0.1",
+    "jest": "^21.2.1",
+    "jest-tobetype": "^1.1.0"
+  }
+}
