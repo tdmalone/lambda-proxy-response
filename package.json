@@ -12,6 +12,9 @@
     "fix": "yarn lint --fix",
     "test": "jest --verbose --coverage"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "aws",
     "lambda",
