@@ -1,0 +1,35 @@
+language: node_js
+node_js: 6.10
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+install: yarn
+
+script:
+  - yarn lint
+  - yarn test
+
+before_deploy: rm -rf tests .*rc.js
+
+deploy:
+
+  - provider: npm
+    email: tdmalone@gmail.com
+    api_key:
+      secure: iFFdrEZStBB5a8pj2gWyOudY4mf07JL0PPzmcHZ4P3Sedcob2P2FhdYF7rSKdE5ATI5h5jroDK8xmeXC7LDUd4Zf0TFXPfVHbRk+kMIxNo0+q5taDcvJa5sIsMJZJv0myIX3vlsSq1AouifSGYgPcuFz7vUe/Rqgolh/l/kqEHGXm0dzleY8eG1xNvM+anK9ItwH2YZXY7Q+blWpPUVbdCxjCFKuvx3txMRg/Ub+2yqltguYlU1RrSqxvytt6y5N47sCtKWuVvVDyt7/inpb3OZq6LdSPDzFZPjv26FPhCOQ6TI6iSmNik9+GgXayPAIeoG5Qn7q6iN5dkhHein7hRqhvpLkLa/Tl+va/8CMUYClozkWtQY14b/Gxxa4CDDaq3z1ojSzJKkjrRjdRCf+uW6F1k4zpmDvJvLnAQJIK04S709Df6tY6XY3jF9inmHtFUWYdWn4AtO5qHPtERrTOEKcF4/lOAxrnrMEx5ZANmk9WrkVoLRKYCdS5fbaWnL6hdruqU4g4WQ5YvX8+e7WKm4/a/BS8Bps5sA44/bAXa/iURZsdytxPwb6DlZYEQytoawNnSHyMH2PEM6YGetsduK41eEUoEMHJxoMfn54Gcj9yIf4xxKGx6QDHj1sUPqZGlaA6Tg90b0x+F6AzpMZDNO7K+G8YuRM1eBQz+ysouY=
+    skip_cleanup: true
+    on:
+      branch: master
+      tags: true
+
+notifications:
+  email: false
+  webhooks:
+    urls: https://api.tm.id.au/dev/travis/jobStatus
+  slack:
+    on_start: always
+    rooms:
+      - secure: f1Ncy2lXV/FUMTCgTzLSiDNwBlfGGkzA+GkbnhYnlkqfkNEl1MRbHkKIIfM6XZ7OSv8lGIAMcyPhccWHaTjzsHMpVhGD2e2x13lOz/V28iRNhmOs4x4QGrLJ11QuBcYnEXPaNsaLHM4fkWjVwOVt4tdtoqXEAtu4VKGA8cmJ0Hkne+LO+fDb5g8Z6+SqQAgWbiPyWLb558QTQWTEKRkbjOCzb7UdHkLKDAHgbs1anhWxAy+c3ROchpvexIi4Yi/2Nu/rqvEU7vLcgGNK0psrYizIHsY309KAn41dts11v2rbkYSF8kx8dsbQfcYlc+znLFaYK7RQgzo+gzo1lbREVKnh+F3h6JWnyGnz79KuJuxcB0cQ3k1wSgZkV28NvwH/y+y3nIwcAbpUyv8dBiTEa+YXQLblIUvvPUCnD4ERk/QqFP5P2Iaxu5R4moHFgZlfYjJZrNzo8q/0egoAlKbu9fvKhj8PMdOmuA1y6gLXgUzfp3GAO3Yju8zw7UAYw24qlzkpGWaplBgCizjAmvJBV5NACxpzmuPdnmNm1bSLnOTUjBRgN/WCBgCZzMfpK6cqksaC2gNtwqeKz4lFz+PrtlGwONUyvAjqVCuhiWc2PWhrwS8kc+xNAS48kfyRUf14SRvnh415a4OVo/1ptATNe7eLZ1Wd01QClPu25QYqSKc=
